@@ -1,0 +1,42 @@
+"use client";
+
+import React, { useState } from "react";
+import { IoIosCafe } from "react-icons/io";
+import { IoMenu } from "react-icons/io5";
+import Sidebar from "./Sidebar";
+
+const Navbar = () => {
+  const [click, setClick] = useState(false);
+
+  const handleClick = () => {
+    setClick((prev) => !prev);
+  };
+
+  return (
+    <div className="w-full h-20 sticky bg-blue-900 ">
+      <div className="flex justify-between items-center sm:px-16 px-4 py-4">
+        <div className="flex justify-center items-center gap-3 sm:text-4xl text-2xl ">
+          <IoIosCafe  />
+          <div className="block">
+            <h1 className="font-bold">K-Cafe </h1>
+            <p className="text-sm">Art of bridge</p>
+          </div>
+        </div>
+        <ul className=" hidden sm:flex justify-center items-center gap-8 text-2xl font-bold ">
+          <li>ارتباط با ما </li>
+          <li>درباره ما</li>
+          <li>ایونت ها </li>
+          <li>منو </li>
+        </ul>
+
+        <IoMenu
+          onClick={handleClick}
+          className="flex sm:hidden cursor-pointer text-2xl "
+        />
+      </div>
+      {click && <Sidebar />}
+    </div>
+  );
+};
+
+export default Navbar;

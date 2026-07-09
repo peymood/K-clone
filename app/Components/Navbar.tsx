@@ -14,7 +14,7 @@ const Navbar = () => {
 
   return (
     <div className="w-full h-20 sticky bg-blue-900 ">
-      <div className="flex justify-between items-center sm:px-16 px-4 py-4">
+      <div className="flex justify-between items-center sm:px-16 px-4 py-2">
         <div className="flex justify-center items-center gap-3 sm:text-4xl text-2xl ">
           <IoIosCafe  />
           <div className="block">

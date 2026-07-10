@@ -1,22 +1,19 @@
-
 "use client";
 
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/utils";
-import { Card, CardContent, CardHeader } from "@/app/Components/ui/card";
-import { FieldGroup } from "@/app/Components/ui/field";
-import { Button } from "@/app/Components/ui/button";
+import { Card, CardContent, CardHeader } from "@/Components/ui/card";
+import { FieldGroup } from "@/Components/ui/field";
+import { Button } from "@/Components/ui/button";
 import {
   InputOTP,
   InputOTPGroup,
   InputOTPSlot,
-} from "@/components/ui/input-otp";
+} from "@/Components/ui/input-otp";
+import { useOtp } from "@/Context/OtpContext";
 
-export function Otp({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-  const [otp, setotp] = useState("");
+export function Otp({ className, ...props }: React.ComponentProps<"div">) {
+  const { otp, setOtp, handleOtp } = useOtp();
   const [timer, setTimer] = useState(120);
 
   useEffect(() => {
@@ -32,20 +29,20 @@ export function Otp({
   const minutes = Math.floor(timer / 60);
   const seconds = timer % 60;
 
-  const formattedTime = `${minutes}:${seconds
-    .toString()
-    .padStart(2, "0")}`;
+  const formattedTime = `${minutes}:${seconds.toString().padStart(2, "0")}`;
 
   const handleResendOtp = () => {
     // اینجا API ارسال مجدد کد را صدا بزن
+    //باید یک ای بی ای جدا برای ارسال دوباره و اس ام اس دوباره کد بزنی
     console.log("Resend OTP");
 
-    setotp("");
+    setOtp("");
     setTimer(120);
   };
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    handleOtp();
 
     console.log("OTP:", otp);
 
@@ -63,11 +60,7 @@ export function Otp({
           <form onSubmit={handleSubmit}>
             <FieldGroup>
               <div className="space-y-4">
-                <InputOTP
-                  maxLength={6}
-                  value={otp}
-                  onChange={setotp}
-                >
+                <InputOTP maxLength={6} value={otp} onChange={setOtp}>
                   <InputOTPGroup>
                     <InputOTPSlot index={0} />
                     <InputOTPSlot index={1} />

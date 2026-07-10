@@ -1,30 +1,42 @@
+"use client";
+
 import { cn } from "@/lib/utils";
-import { Button } from "@/app/Components/ui/button";
-import { Card, CardContent, CardHeader } from "@/app/Components/ui/card";
+import { Button } from "@/Components/ui/button";
+import { Card, CardContent, CardHeader } from "@/Components/ui/card";
 import {
   Field,
   FieldDescription,
   FieldGroup,
   FieldLabel,
-} from "@/app/Components/ui/field";
-import { Input } from "@/app/Components/ui/input";
+} from "@/Components/ui/field";
+import { Input } from "@/Components/ui/input";
+import { useAuth } from "@/Context/AuthContext";
 
-export function SignUp({
+export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const { phone, setPhone, error, handlePhone } = useAuth();
+
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
         <CardHeader className="text-center font-bold text-2xl ">
-         ثبت نام 
+          صفحه ورود
         </CardHeader>
         <CardContent>
-          <form>
+          <form onSubmit={handlePhone}>
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="email">شماره موبایل</FieldLabel>
-                <Input id="phone" type="phone" placeholder="09" required />
+                <Input
+                  id="phone"
+                  type="text"
+                  placeholder="09123456789"
+                  value={phone}
+                  onChange={(e) => setPhone(e.target.value)}
+                  required
+                />
               </Field>
 
               <Field>
@@ -32,9 +44,11 @@ export function SignUp({
                   className="w-full hover:bg-blue-600 cursor-pointer"
                   type="submit"
                 >
-                  تایید
+                  ورود
                 </Button>
-               
+                <FieldDescription className="text-center">
+                  اگر حساب ندارید <a href="#">ثبت نام </a>
+                </FieldDescription>
               </Field>
             </FieldGroup>
           </form>
@@ -44,6 +58,8 @@ export function SignUp({
         By clicking continue, you agree to our <a href="#">Terms of Service</a>{" "}
         and <a href="#">Privacy Policy</a>.
       </FieldDescription>
+
+      {error && <p>Error...</p>}
     </div>
   );
 }

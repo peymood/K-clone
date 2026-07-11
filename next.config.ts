@@ -6,7 +6,11 @@ const nextConfig: NextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "k.cafe",
+        hostname: "k.cafe"
+      },
+      {
+        protocol: "https",
+        hostname: "cdn.dummyjson.com",
       },
     ],
   },

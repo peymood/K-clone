@@ -8,7 +8,7 @@ const Otp = createContext<any>(null);
 
 export const useOtp = () => useContext(Otp);
 
-export const AuthProvider = ({ children }) => {
+export const OtpProvider = ({ children }) => {
   const [otp, setOtp] = useState("");
   const [error, setError] = useState("");
   const router = useRouter();

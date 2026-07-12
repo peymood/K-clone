@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const HomePage = () => {
   return (
-    <div className="w-full mx-auto mt-24 h-screen  ">
+    <div className="w-full mx-auto mt-24   ">
       <div className="flex flex-col justify-center items-center gap-12 ">
         <h1 className="sm:text-9xl text-6xl">K-Café</h1>
 
@@ -27,7 +27,7 @@ const HomePage = () => {
           src="https://k.cafe/wp-content/uploads/elementor/thumbs/D2A0327-copy-scaled-qawhgop02sfyp7fgcq33syh58bahehxfsbh67lsozs.jpg"
           alt="K-Cafe"
           width={1200}
-          height={800}
+          height={400}
           className="rounded-xl w-full h-auto"
         />
       </div>

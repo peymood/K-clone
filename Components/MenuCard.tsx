@@ -18,7 +18,7 @@ export function CardImage() {
     pro.name.toLowerCase().includes(search.toLowerCase()),
   );
 
-  console.log(menu);
+  
   return (
     <>
       <div className=" w-full max-w-sm mx-auto text-center mb-6 mt-3 ">

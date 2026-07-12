@@ -1,9 +1,11 @@
-import HomePage from "./homePage/page";
+import HomePage from "./header/page";
+import MenuBar from "./menuBar/page";
 
 export default function Home() {
   return (
-   <div  >
-     <HomePage /> 
-   </div>
+    <div>
+      <HomePage />
+      <MenuBar /> 
+    </div>
   );
 }

@@ -1,13 +1,16 @@
+
+import About from "./about/page";
 import HomePage from "./header/page";
 import MenuBar from "./menuBar/page";
-import OrderPage from "./Order/page";
+import OrderPage from "./order/page";
 
 export default function Home() {
   return (
     <div>
       <HomePage />
-      <MenuBar /> 
-      <OrderPage /> 
+      <MenuBar />
+      <OrderPage />
+      <About />
     </div>
   );
 }

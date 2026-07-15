@@ -32,7 +32,7 @@ export function CardImage() {
       <div className="grid sm:grid-cols-3 gap-4">
         {searchProduct?.map((item) => (
           <Card key={item.id}>
-            <Image src={item.image} alt={item.name} width={400} height={300} />
+            <Image src={item.image} alt={item.name} width={400} height={300} loading="lazy" />
 
             <CardHeader>
               <CardTitle>{item.name}</CardTitle>

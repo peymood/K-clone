@@ -25,7 +25,7 @@ const Navbar = () => {
         </div>
         <ul className=" hidden sm:flex justify-center items-center gap-8 text-2xl font-bold ">
           <li>ارتباط با ما </li>
-          <li>درباره ما</li>
+          <li><Link href="#about">درباره ما </Link></li>
           <li>ایونت ها </li>
           <li>
             <Link href="/menu">منو</Link>

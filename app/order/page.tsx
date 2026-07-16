@@ -25,7 +25,7 @@ function OrderPage() {
               alt="سادگی و تنوع"
               width={1200}
               height={400}
-              className="rounded-xl w-full h-auto"
+              className="rounded-xl w-full h-auto  "
             />
 
             <h2 className="font-bold text-xl mt-4 mb-2">سادگی و تنوع</h2>

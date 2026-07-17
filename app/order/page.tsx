@@ -1,8 +1,22 @@
 import { Button } from "@/Components/ui/button";
-import Link from "next/link";
 import Image from "next/image";
+import { useAuth } from "@/Context/AuthContext";
+import { useRouter } from "next/navigation";
 
 function OrderPage() {
+
+  //rah addi baraye tashkhis inke aya karbar login ast ya na bedoone backend va API
+  const { isAuthenticated } = useAuth();
+  const router = useRouter();
+
+  const handleOrder = () => {
+    if (isAuthenticated) {
+      router.push("/menu");
+    } else {
+      router.push("/signUp");
+    }
+  };
+
   return (
     <div className="w-full bg-gray-700">
       <div className="flex flex-col items-center gap-12 px-3 py-6">
@@ -14,8 +28,9 @@ function OrderPage() {
         <Button
           className="px-10 py-6 hover:bg-blue-600 cursor-pointer"
           type="submit"
+          onClick={handleOrder}
         >
-          <Link href="">ثبت سفارش</Link>
+          ثبت سفارش
         </Button>
 
         <div className="flex flex-col sm:flex-row justify-center gap-8 w-full">
